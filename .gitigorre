@@ -1,0 +1,27 @@
+# Raw and cached data (never commit — IIP Patent Database is licensed, non-redistributable)
+data/*.txt
+data/*.pkl
+*.pkl
+*.csv
+!requirements.txt
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# OS
+.DS_Store
