@@ -1,0 +1,478 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black}
+
+\title{Patent Portfolio Scale, Relatedness, and Institutional Evaluation}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+\emph{Manuscript prepared for double-anonymous review. Author identity, affiliation, and acknowledgements appear on a separate title page.}
+\end{center}
+
+\begin{abstract}
+\noindent Field-specific patent stock and portfolio relatedness are both positively associated with a firm's continued filing in a technological field after first entry, robust across alternative risk sets, applicant-identity definitions, and procedural-filing restrictions. The two dimensions relate differently to examination-record citation of an applicant's technological history: larger stock is associated with citation of the applicant's own prior art once a citation context is recorded, whereas relatedness is associated with less of it, more clearly in one context than the other. Portfolio growth is associated with more active fields without more even balance across them. Exploratory examination-timing analyses find no robust association between relatedness and grant timing, though relatedness is associated with earlier rejection-decision-related recording. Scale and relatedness are distinct, independently relevant dimensions of accumulated capability, not interchangeable proxies for a single construct.
+
+\vspace{8pt}
+\noindent \textbf{Keywords:} patent portfolio; path dependence; local search; patent examination; technological relatedness
+
+\vspace{4pt}
+\noindent \textbf{JEL classification:} O31, O32, O34, L65
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+
+Firms rarely innovate from a blank slate. Their inventive activity is shaped by what they already know, what they have already patented, and how that accumulated stock of technological claims is organized --- the core premise of the path-dependence and local-search traditions in innovation economics \citep{dosi1982, nelson1982, david1985, sydow2009}.
+
+A less examined question is \emph{what, precisely, about an accumulated portfolio does the reinforcing work, and for which outcomes}. Two candidate mechanisms are usually treated as if they were interchangeable, or as if one must dominate the other: sheer scale, and structure. I distinguish two structural dimensions throughout: \emph{field-to-portfolio relatedness} (how closely a focal field is connected to a firm's other holdings) and \emph{firm-level portfolio concentration} (how unevenly a firm's stock is distributed across the fields it is active in); these are measured and analyzed separately rather than combined into a single structure index. I show, across linked empirical models and a battery of robustness checks, that scale and relatedness need not be an either/or explanation: they are jointly associated with patterns consistent with path reinforcement, but attach to different stages of the process rather than competing to explain the same outcome, and the strength of the evidence differs across those stages.
+
+The empirical strategy can be described without equations. I ask whether a firm keeps filing patents in a technology area because it already holds many patents there (scale), because that area is closely related to the rest of what the firm already patents (structure), or both; whether examination records reflect the same two dimensions the way the firm's own filing behavior does, or differently; and whether the pace of grant versus a rejection-related record depends on scale and structure in the same or different ways. Every measure of scale and structure is built only from information that existed before the outcome it explains, so I am not using the future to explain the past.
+
+Two findings anchor the paper. First, portfolio scale and portfolio relatedness are independently associated with continued patenting within established technological fields. Second, the same two dimensions do not translate uniformly into institutional processing: scale is associated with examiners' citation of the applicant's own prior art once a citation context is recorded, while relatedness is associated with less of it. A third, exploratory line of evidence concerns whether examination timing itself depends on scale and structure differently; static and time-to-event models consistently indicate different associations of scale with grant versus rejection-related timing, and converging full-sample evidence, further supported by a battery of reproducibility checks, suggests relatedness has no association with grant timing specifically.
+
+These results contribute to the path-dependence and local-search literatures by showing that scale and structural composition are distinct, outcome-specific dimensions of accumulated capability rather than a single undifferentiated construct; and to the literature on institutional recognition in patent examination by showing that examination-record engagement with an applicant's technological history responds to scale and relatedness in different, and in one setting opposite, directions.
+
+Section 2 reviews the relevant literature and states three research questions. Section 3 describes the data, a conceptual framework for portfolio-driven search and institutional evaluation, and identification. Section 4 presents results and robustness checks. Section 5 discusses implications. Section 6 concludes.
+
+\section{Literature Review and Research Questions}
+
+\subsection{Technological trajectories and local search}
+
+The idea that innovation follows self-reinforcing trajectories is well established. \citet{nelson1982} model organizational routines as locally stable and cumulative; \citet{dosi1982} argues that technological paradigms channel search along particular trajectories; \citet{david1985} and \citet{sydow2009} formalize the conditions under which early choices become locked in. \citet{cohenlevinthal1990} provide the classic microfoundation for why relatedness, not only scale, should matter: a firm's ability to recognize, assimilate, and apply new information is a function of its existing, related knowledge base, so two firms with identical total knowledge stocks can differ in how effectively they can extend that stock into an adjacent area depending on how coherently it is organized. \citet{march1991} frames this as a tension between exploitation of existing competence and exploration of new possibilities, arguing that organizations tend to under-invest in exploration once exploitative routines prove reliable; if scale and relatedness both predict continued filing within an already-established field, that would be, in March's terms, evidence of exploitative persistence, though the paper does not separately test whether the same firms explore less as a consequence, which would require observing filing in fields a firm has not yet entered rather than continuation within fields it has. Local-search accounts predict that firms elaborate on their existing technological position both because doing so is cheaper (a scale argument) and because closely related search draws more effectively on existing, absorptive-capacity-relevant competence (a structural argument); these are observationally distinct predictions, and RQ1 is designed to adjudicate between them rather than to test exploration-exploitation balance directly.
+
+\subsection{Technological relatedness, coherence, and related diversification}
+
+A substantial literature measures technological relatedness directly from patent data and links it to firm-level diversification and performance outcomes, providing the closest methodological precedent for this paper's relatedness construction. \citet{breschi2003} construct a technological-coherence index from patent citation patterns across roughly 450,000 EPO patents and show that firms diversify preferentially into technologically related fields, establishing the co-occurrence-based approach to measuring relatedness that this paper's cosine-similarity construction (Appendix A) extends to a citation-context setting rather than a diversification-only one. \citet{leten2007} build on this measure to show that technological diversification has an inverted-U relationship with firm performance, and that coherence positively moderates this relationship, meaning a diversified but incoherent portfolio underperforms a diversified and coherent one; this is a direct precedent for the present paper's own suggestive finding of a concave relatedness--filing relationship (Section 4.1, Appendix A), and situates that finding within an established empirical regularity rather than treating it as unprecedented. Where this literature has primarily related technological coherence to diversification patterns and firm performance, RQ1 and RQ2 extend the same underlying relatedness construct to two outcomes --- continued filing and institutional recognition --- that this literature has not previously connected to a common, pre-determined relatedness measure.
+
+\subsection{Patent portfolios as multidimensional capital}
+
+Research on patent portfolios classically builds on path dependence and local search, and has more recently moved toward treating a portfolio not merely as a count of patents but as a question of relatedness, structure, and allocation across technological fields. \citet{lishuying2020} develop a Patent Portfolio Model to assess an organization's technological strength across fields, distinguishing the advantages and gaps in a portfolio's coverage from its sheer size; \citet{zhai2021} similarly treat a competitor's patent portfolio as a structured object whose technological ``meta-path'' reveals strategic intent beyond what patent counts alone convey. \citet{choy2020} shows, in the Korean semiconductor industry, that path-dependent innovation --- building new patents on a firm's own prior knowledge rather than on externally sourced knowledge --- has a distinct and initially positive association with firm value, underscoring that the source and structure of accumulated knowledge, not only its volume, matters for firm-level outcomes. Closest to the present paper, \citet{lilanhua2025} show, using patent-level survival analysis of Chinese high-technology firms, that both a portfolio's technological advantage in a field and its relatedness across fields are associated with higher individual patent value, and that these associations strengthen under external technological competition; their focus on patent value complements my focus on filing continuation and institutional evaluation, and both papers treat portfolio relatedness as a construct distinct from portfolio size, though their relatedness construction is built from patent-level topic similarity rather than the firm-field co-specialization approach used here. \citet{bradleykolev2023}, exploiting a piracy-driven shock to the software industry, show that incumbent firms with large pre-existing patent portfolios disproportionately expanded their use of complementary intellectual-property instruments rather than patents alone, a pattern consistent in spirit with treating portfolio scale and portfolio-level strategic response as separable margins of firm behavior. \citet{sternitzkewalter2026} show that the clarity of individual patent claims in the chemical industry --- an attribute of an individual patent rather than of the surrounding portfolio --- shapes litigation likelihood and outcomes and interacts with legal patent scope; their patent-level focus complements my portfolio-level focus on scale and relatedness.
+
+Building on this literature, I ask:
+
+\medskip
+\noindent \textbf{Research Question 1.} Are portfolio scale and portfolio relatedness independently associated with a firm's continued patenting in a technological field, once the field is already established for that firm?
+
+\medskip
+\noindent I answer RQ1 affirmatively for both dimensions (Section 4.1): a larger pre-existing patent stock and greater relatedness to a firm's broader portfolio are each positively and independently associated with subsequent filing intensity, net of firm-field-specific heterogeneity and year effects. As firms accumulate a larger technological base, they also plausibly diversify into adjacent fields, which motivates a descriptive proposition about portfolio evolution examined alongside RQ1 in Section 4.2.
+
+\subsection{Examiner citations and institutional recognition}
+
+A parallel literature treats the patent office not merely as a rule-applying bureaucracy but as an institution whose examiners actively shape the prior-art record. \citet{alcacergittelman2006} show that a large share of the citations appearing on granted U.S. patents are added by examiners rather than applicants, and that this matters directly for how citation-based measures of knowledge flow should be interpreted; \citet{alcacer2009} extend this analysis and show that examiner citation shares vary systematically with applicant and technology-field characteristics, including firm-level patenting volume, establishing that \emph{who} adds a citation, and under what institutional process, is itself a firm-level regularity worth explaining rather than a source of pure measurement noise. A related body of work documents that examination outcomes are shaped by examiner-level discretion and by the institutional conditions under which examiners work, not solely by application characteristics: \citet{kimoh2017} show that heavier examiner workloads are associated with a higher probability of grant and a lower probability of rejection reversal, consistent with time-constrained examiners defaulting toward allowance, while \citet{righisimcoe2019} document substantial examiner specialization by technology and show that more specialized examiners grant at lower rates and narrow claim scope more during prosecution. This literature has generally focused on citation shares, workload, and specialization as determinants of grant outcomes; it has not, to my knowledge, tested whether the citations examiners add specifically reference an applicant's \emph{own} prior patents, and whether that self-referential recognition responds to the scale or the structure of the applicant's portfolio in a Japanese pharmaceutical setting, which is the gap I address with RQ2. I do not observe individual examiner identity in the present data, so I cannot directly test whether the RQ2 pattern operates through examiner-level discretion of the kind \citet{kimoh2017} and \citet{righisimcoe2019} document, or through some other channel; this is an explicit limitation of the present design relative to studies with examiner-linked data.
+
+A smaller but directly relevant literature examines the timing of Japanese patent examination specifically. \citet{nakatazhang2012} conduct a survival analysis of examination-request timing by Japanese electrical and electronics manufacturers and find that self-citation counts are positively associated with earlier examination requests, a finding methodologically close to this paper's own event-history approach (Section 3.3) though focused on the applicant's decision to request examination rather than on examiners' subsequent citation behavior; \citet{kaninishimura2025} use the same institutional setting --- Japan's discretionary examination-request window --- to show that a 2011 fee reform had limited effects on granted-patent quality, evidence that JPO examination outcomes respond measurably to changes in the surrounding institutional environment, which is consistent with treating the 2001 examination-request-deadline reform used as a stratification variable in Model 3 (Section 3.3) as capturing a genuine regime shift rather than an arbitrary period split. Neither of these papers examines portfolio-level relatedness or scale as a predictor of examination timing, which is the gap RQ3 addresses.
+
+Finally, because continued filing in an established field could in principle reflect procedural patent-family practices rather than substantive search, it is worth situating this concern within the literature on continuation and divisional filing strategy. \citet{righisimcoe2020} document that continuation practice at the USPTO is itself a strategic choice shaped by examiner assignment and prosecution history, and \citet{kapczynski2012} show, in the pharmaceutical setting most relevant to the present sample, that secondary patents --- including those obtained through continuation-like filings on existing compounds --- are common and add substantial additional patent life, particularly for higher-value drugs. Neither of these literatures directly measures the association between an applicant's underlying technological relatedness and its propensity to generate such follow-on filings, which is why Section 4.1's bulk-filing exclusion and extensive-margin checks are offered as a partial, rather than complete, response to this concern (Section 5.4).
+
+\medskip
+\noindent \textbf{Research Question 2.} Conditional on a citation context being recorded against an application, do portfolio scale and portfolio relatedness predict examiner citation of the applicant's own prior patents in the same way?
+
+\medskip
+\noindent I find they do not (Section 4.3): scale is positively associated with own-patent citation in this setting, while relatedness is negatively associated with it, a difference I treat as a genuine, if only partly explained, empirical regularity rather than one predicted in advance by either the local-search or the examiner-citation literature.
+
+\subsection{The pace of examination}
+
+Grant and rejection-related recording are conceptually distinct outcomes that need not respond to portfolio characteristics in the same way, and, as Section 3.3 details, are not mutually exclusive terminal states for a given application.
+
+\medskip
+\noindent \textbf{Research Question 3.} Are portfolio scale and portfolio relatedness associated with the timing of grant and of a rejection-related record in the same way, or differently?
+
+\medskip
+\noindent My answer to RQ3 is qualified (Section 4.4): scale is associated with the two timing outcomes in a statistically distinguishable way. Relatedness's association with grant timing is null across three full-sample specifications that vary in stratification structure and in how an intervening rejection-related record is treated; a significant negative association initially appeared under one random firm subsample, but nine subsequent reproducibility checks did not replicate it, so I now regard the full-sample null as the better-supported conclusion, subject to the residual caveat that the finite-sample source of the original isolated estimate remains unknown.
+
+\subsection{Where this leaves the literature}
+
+Prior research has separately documented local search around accumulated capabilities and examiner engagement with applicants' prior portfolios, and has increasingly recognized relatedness and structure as dimensions distinct from portfolio size \citep{lishuying2020, zhai2021, lilanhua2025}, but has rarely traced the \emph{same} pre-determined scale and relatedness measures through continued search, portfolio evolution, and institutional recognition within one design, and the examiner-citation literature \citep{alcacergittelman2006, alcacer2009} has not previously distinguished self-referential from other examiner citations as a function of portfolio structure. RQ1 and RQ2 are answered with reasonable confidence in Sections 4.1--4.3; RQ3 is addressed but not conclusively resolved in Section 4.4.
+
+\section{Data, Conceptual Framework, and Empirical Design}
+
+\subsection{Data}
+
+I use the IIP Patent Database, covering pharmaceutical and life-science-related patent applications filed at the Japan Patent Office between 1990 and 2021 (IPC classes A61, C07, and C12, matched at the four-digit IPC subclass level, 32 distinct subclasses in the sample), with data recorded through mid-2023. The estimation sample comprises 880,699 applications by 154,918 distinct applicant codes after the applicant-identity screening described in Appendix A. Applicant composition is highly skewed: 71.2 percent of applicant codes file only once in the sample, while codes filing five or more times (10.5 percent of codes) account for 79.2 percent of applications, and the top one percent of codes by application count account for 58.4 percent of applications; 89.1 percent of applications are associated with a corporate (as opposed to individual) applicant flag. Firm-field fixed-effects specifications are identified only from applicant codes with within-field variation over time, so the effective estimation sample for Table 1's preferred specification is smaller than the full applicant count; single-application codes do not contribute to within-firm-field identification in that specification, though they do contribute to specifications with less granular fixed effects.
+
+The observation unit is the individual application, identified by its first-listed applicant; Appendix A discusses the resulting limitation for co-applicant and collaborative filings. All portfolio-level regressors --- patent stock, grant stock, portfolio concentration, portfolio diversity, and technological relatedness --- are constructed from a fully enumerated firm-field-year panel, using information dated before the beginning of the focal calendar year; I describe this as \emph{beginning-of-year predetermined} measurement rather than strictly \emph{pre-application} measurement, since a portfolio measure for a December application does not exclude information from an unrelated January application filed earlier in the same calendar year. Examiner citation records are drawn from six reason codes confirmed present in the database, grouped into five citation contexts: rejection-reason notices (two codes), rejection-decision-related records (one code), grant-decision-related records (one code), amendment-rejection records (one code), and pre-appeal reports (one code). Rejection-decision-related records (used to construct the rejection-record-timing outcome in Section 4.4) are, on inspection, not a direct final-disposition field, since 14.9 percent of applications with such a record are subsequently granted, which is why they are treated as event-history records rather than as a final outcome. Applications filed after 2021 are excluded from the continued-filing analysis, and observations near the mid-2023 data-collection cutoff are truncated elsewhere, to avoid mechanical undercounting from examination and publication lags. Sample construction, applicant-identity screening, the exact relatedness construction, and all variable definitions are documented in Appendix A.
+
+\subsection{A conceptual framework for portfolio-driven search and institutional evaluation}
+
+The following is a stylized search-cost framework intended to organize the empirical specifications and clarify what each is, and is not, designed to identify; its purpose is expositional rather than to derive a non-obvious theoretical result.
+
+\textbf{Firm search.} Firm $i$ chooses filing intensity $x_{igt} \geq 0$ in field $g$ at $t$ to maximize $R(x_{igt}) - C(x_{igt}; K_{ig,t-1}, \rho_{ig,t-1})$, with revenue $R(x) = ax - \tfrac{b}{2}x^2$ ($a,b>0$) and cost
+\begin{equation}
+C(x_{igt}; K_{ig,t-1}, \rho_{ig,t-1}) = \frac{c\,x_{igt}^2}{2(1+\alpha K_{ig,t-1} + \beta \rho_{ig,t-1})}, \qquad c,\alpha,\beta>0,
+\end{equation}
+so that both stock $K_{ig,t-1}$ and relatedness $\rho_{ig,t-1}$ lower the marginal cost of search --- an absorptive-capacity mechanism in the sense of \citet{cohenlevinthal1990}, in which related prior knowledge lowers the cost of extending a firm's competence into an adjacent area --- and $C$ is convex in $x_{igt}$. The interior optimum
+\begin{equation}
+x_{igt}^{*} = \frac{a\,(1+\alpha K_{ig,t-1}+\beta\rho_{ig,t-1})}{b\,(1+\alpha K_{ig,t-1}+\beta\rho_{ig,t-1}) + c},
+\end{equation}
+is strictly increasing in both $K_{ig,t-1}$ and $\rho_{ig,t-1}$ by construction, given $\alpha,\beta>0$; this is the content of RQ1 and is a direct consequence of the assumed cost structure rather than a novel theoretical derivation. This single-field framework does not impose a cross-field resource constraint, so the portfolio-level diversification result in Section 4.2 is presented as a descriptive corollary rather than a strict implication; a multi-field extension with a firm-level budget constraint $\sum_g x_{igt} \leq B_{it}$ is left for future work.
+
+\textbf{Institutional evaluation.} For application $j$ in field $g$, let $\lambda_{jgt}$ be the probability a citation context occurs and, conditional on occurrence, let $\sigma_{jgt}=\sigma(K_{ig,t-1},\rho_{ig,t-1})$ be the probability the citation draws on the applicant's own patents. A larger own-stock expands the set of applicant-owned prior patents potentially available for examiner citation, motivating the expectation $\sigma_K>0$. The sign of $\sigma_\rho$ is left open: coherence could concentrate the prior-art neighborhood on the applicant's own patents, or place the invention in a denser neighborhood of similar third-party art. I do not assume $\lambda$ is independent of portfolio characteristics; Section 4.3 estimates $\lambda$ and $\sigma$ separately so that their association with portfolio measures is not conflated. This is the content of RQ2.
+
+\textbf{Examination timing.} I allow the hazard of grant, $h_G(t\mid K,\rho,HHI)$, and the hazard of a rejection-related record, $h_R(t\mid K,\rho,HHI)$, to differ in their dependence on portfolio characteristics, without assuming these are mutually exclusive terminal states. This is the content of RQ3.
+
+\subsection{Identification}
+
+Three design features improve, without fully establishing, the causal interpretability of the associations reported below.
+
+\textbf{Temporal ordering.} Every regressor is measured before the outcome it predicts, which rules out mechanical reverse causality but not omitted persistent firm-level heterogeneity, which I address via firm-field fixed effects (Section 4.1), firm fixed effects (Section 4.2), and firm-clustered inference throughout.
+
+\textbf{Established-field risk set.} A zero-filled firm-field-year panel that includes years before a firm's first-ever filing in a field would implicitly condition the risk set on knowledge of which fields the firm eventually enters. My preferred specification therefore restricts the risk set to $t > T_{ig}^{0}$, the year after a firm's first filing in field $g$; a full-grid specification that does not impose this restriction is reported alongside it to show the restriction is not what drives the result.
+
+\textbf{Event-history structure.} Because 14.9 percent of applications with a rejection-related record are subsequently granted, grant and rejection-related recording are not mutually exclusive terminal states, and treating them as competing risks --- in which one event censors the other --- would not be appropriate. Section 4.4 instead estimates them as separate event-history models, each on the full sample with its own event indicator, together with a model of time from a rejection-related record to a subsequent grant among applications that experience one, and a further specification that treats the occurrence of a rejection-related record as a time-varying covariate within the grant-timing model itself.
+
+I treat the associations reported below as robust, pre-determined correlations consistent with the framework above, not as fully identified causal effects: unobserved, time-varying shocks correlated with both portfolio accumulation and the outcomes of interest remain a threat that fixed effects and temporal ordering alone do not eliminate; I do not use the term ``continued technological search'' to imply that patent filing is a complete proxy for underlying R\&D activity, and Appendix A discusses procedural filing patterns (e.g., divisional applications) as an additional caveat on this interpretation.
+
+\section{Results}
+
+\subsection{RQ1: established-field reinforcement}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Established-field filing intensity (PPML, firm-clustered SE)}
+\label{tab:block1a}
+\begin{tabular}{lccccc}
+\toprule
+ & Preferred & Full grid & R1 & R2 & R3 \\
+ & \scriptsize($t>T^0_{ig}$; & \scriptsize(firm-field \& & \scriptsize(firm-year \& & \scriptsize(field-year \& & \scriptsize(firm, field, \\
+ & \scriptsize firm-field \& year FE) & \scriptsize year FE) & \scriptsize field FE) & \scriptsize firm FE) & \scriptsize year FE, additive) \\
+\midrule
+$\log(1+\text{decayed stock})$ & 0.507\textsuperscript{***} & 0.484\textsuperscript{***} & 1.098\textsuperscript{***} & 1.025\textsuperscript{***} & 1.025\textsuperscript{***} \\
+ & (0.024) & (0.021) & (0.009) & (0.009) & (0.009) \\
+$\log(1+\text{granted stock})$ & $-0.120$\textsuperscript{***} & $-0.166$\textsuperscript{***} & $-0.128$\textsuperscript{***} & $-0.163$\textsuperscript{***} & $-0.160$\textsuperscript{***} \\
+ & (0.017) & (0.017) & (0.011) & (0.012) & (0.013) \\
+Relatedness (cosine, [0,1]) & 0.904\textsuperscript{***} & 0.836\textsuperscript{***} & 1.039\textsuperscript{***} & 1.203\textsuperscript{***} & 1.276\textsuperscript{***} \\
+ & (0.273) & (0.210) & (0.053) & (0.094) & (0.087) \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\vspace{2pt}
+\footnotesize \textsuperscript{***}$p<0.001$. Firm-clustered SE in parentheses. All stock variables are $\log(1+\cdot)$-transformed; relatedness is a cosine-similarity measure bounded in $[0,1]$ (Appendix A). ``Firm-field'' fixed effects denote a full interaction of applicant and field identifiers. My preferred specification begins the risk spell the year after a firm's first filing in the field; the full-grid column shows the restriction is not what drives the result.
+\end{minipage}
+\end{table}
+
+\textbf{RQ1 receives consistent support for stock and broad, though technologically heterogeneous, support for relatedness.} The relatedness coefficient is identified only for firm-field observations with pre-existing activity outside the focal field, since relatedness is undefined for single-field firms (Appendix A, Table A3); the RQ1 relatedness estimates should be read accordingly, as describing already-diversified firms rather than the full established-field risk set. The conceptual framework concerns application-based capability $K$; granted stock is included empirically to distinguish accumulated search activity from formalized exclusion rights, with no sign specified ex ante, and is included as a separate, also $\log(1+\cdot)$-transformed regressor alongside total decayed stock. Granted stock is robustly negative throughout. A separate decomposition --- distinct from the specification in Table 1, and using non-granted stock (total application stock minus granted stock) in place of total decayed stock --- confirms this is not an artifact of joint estimation: granted stock alone, without non-granted stock in the model, is $-0.082$ ($p<0.001$); non-granted and granted stock entered together give $+0.393$ and $-0.129$ respectively (both $p<0.001$); and the granted share of total stock, holding total decayed stock fixed, is $-1.523$ ($p<0.001$). This is consistent with, though does not on its own establish, diminishing marginal filing incentives once formal exclusivity has accumulated; the present design does not observe firm strategic intent, and alternative explanations --- technological maturity, cohort age effects, or R\&D-pipeline completion --- remain to be distinguished, for example via the age composition of granted stock, which is left for future work.
+
+A further check restricts estimation to individual IPC subclasses: the preferred specification's coefficients are $(0.490,-0.167,1.014)$ in A61 (medical/hygiene), $(0.439,-0.201,-0.050$, n.s.$)$ in C07 (organic chemistry), and $(0.449,-0.263,1.131)$ in C12 (biochemistry/microbiology). The stock association is stable across all three subclasses; the relatedness association is detected in A61 and C12 but not in C07. This heterogeneity may reflect differences in technological cumulativeness, in the breadth of the C07 classification, or in how search is organized across these subclasses; the present design does not distinguish among these explanations. Re-estimation on an alternative, less conservative applicant-identity classification, in which seven applicant codes with documented corporate name lineage are reclassified as continuous single-entity histories rather than excluded (Appendix A), yields $(0.484,-0.164,0.864)$, essentially unchanged; the same holds for the models in Sections 4.2--4.4.
+
+Two further checks address measurement concerns raised by the design choices in Section 3.1. First, a high-sole-applicant-share restriction --- restricting the sample to firm-field-year observations in which at least 90 percent of applications have a single listed applicant, rather than a strict 100 percent sole-applicant sample, since the restriction is applied at the firm-field-year level rather than the individual-application level --- yields $(0.513,-0.114,0.908)$, materially unchanged from the full sample, which mitigates the concern that assigning applicant identity by first-listed applicant alone understates continuity involving co-applicants; a strict 100 percent sole-applicant sample and an application-level restriction applied directly to the RQ2 self-citation outcome are both left for future work. Second, to address the possibility that procedural bulk filing (e.g., divisional applications filed on the same day) inflates the stock--filing association, I flag applications where a firm files three or more applications in the same field on the same filing date (10.7 percent of the sample) as likely bulk filings and re-estimate excluding them: the coefficients are $(0.489,-0.116,0.660)$, with stock and granted stock essentially unchanged but relatedness attenuated from $0.904$ to $0.660$ (still significant, $p=0.003$), a reduction large enough to note explicitly rather than treat as negligible; I have not yet tested the sensitivity of this result to the three-application threshold itself (e.g., a five-application definition), which I flag as a remaining check. An extensive-margin specification (a binary indicator for whether the firm filed at all in the field-year, rather than the count) gives the same signs and significance for all three regressors at much smaller magnitudes, as expected for a linear probability model on a binary outcome, which further indicates the result is not solely an artifact of a small number of firms with unusually high filing counts in a given field-year; full coefficients, standard errors, and sample sizes for all three checks in this paragraph are reported in Appendix A's robustness summary (Table A1).
+
+Table 1's coefficients are semi-elasticities with respect to $\log(1+\cdot)$-transformed stock (the exact elasticity with respect to raw stock, $\beta \cdot x/(1+x)$, depends on the stock level and is not reported as a single number); coefficients on $\log(1+\cdot)$-transformed stock are nonetheless directly interpretable in percentage terms via a one-standard-deviation or interquartile move on the transformed scale. Because relatedness enters linearly and is bounded in $[0,1]$, I convert its coefficient using the estimation sample's own variation rather than its full theoretical range. In the preferred specification's estimation sample, a one-standard-deviation increase in $\log(1+\text{decayed stock})$ (SD $=0.876$) is associated with a 55.9 percent increase in expected filing intensity, and an increase from the 25th to the 75th percentile of decayed stock is associated with a 52.3 percent increase. A one-standard-deviation increase in relatedness (SD $=0.158$, on a variable ranging from near 0 to 0.85 in this sample) is associated with a 15.4 percent increase, and an interquartile increase with a 22.8 percent increase. Both associations are economically as well as statistically meaningful, but stock's association is roughly three to four times larger over a one-standard-deviation move, which qualifies the impression, based on the raw coefficients alone, that the two associations are of comparable size.
+
+The magnitude of the stock coefficient varies considerably across the fixed-effects specifications in Table 1 (from $0.484$ to $1.098$), which reflects a difference in estimand rather than a lack of robustness: the preferred and full-grid columns identify variation within a given firm-field cell over time, net of any time-invariant firm-field-specific propensity to file, while R1 and R2 instead absorb firm-year or field-year heterogeneity and so additionally exploit cross-sectional variation across fields or across firms that the preferred specification does not use. That the coefficient is smaller, not larger, in the more demanding within-firm-field specification is itself informative: it indicates that at least part of the raw cross-sectional association between stock and filing intensity reflects persistent differences across firm-field pairs rather than within-pair dynamics, and the preferred specification isolates the latter.
+
+A supplementary check for nonlinearity in the relatedness association is reported in Appendix A rather than here, since the evidence is suggestive rather than conclusive.
+
+\subsection{Portfolio-level diversification}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Firm-year portfolio structure, positive-stock subsample (OLS, firm + year FE)}
+\label{tab:block1b}
+\begin{tabular}{lccc}
+\toprule
+ & Raw HHI & Raw entropy & Normalized entropy \\
+\midrule
+$\log(1+\text{total stock})$ & $-0.127$\textsuperscript{***} (0.002) & $0.277$\textsuperscript{***} (0.004) & $-0.090$\textsuperscript{***} (0.002) \\
+Abnormal filing-surge indicator & $-0.106$\textsuperscript{***} (0.007) & $0.175$\textsuperscript{***} (0.013) & $-0.013$\textsuperscript{***} (0.004) \\
+\midrule
+Observations & 276,345 & 276,345 & 130,750 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\vspace{2pt}
+\footnotesize \textsuperscript{***}$p<0.001$. Normalized entropy divides raw entropy by $\log(N_{it})$, the log of the number of active fields, restricted to $N\geq2$. Field-count-conditional HHI (regressing on log stock and active-field count jointly) gives a stock coefficient of $-0.054$ ($p<0.001$, roughly 40 percent of the raw $-0.127$), with active-field count itself contributing $-0.050$ ($p<0.001$).
+\end{minipage}
+\end{table}
+
+Firms with larger accumulated patent stocks exhibit lower raw portfolio concentration and higher raw portfolio diversity. However, once entropy is normalized for the number of active fields --- separating ``more fields'' from ``more evenly distributed across those fields'' --- the normalized-entropy coefficient on stock is \emph{negative} ($-0.090$, $p<0.001$): larger firms are active in more fields, but their filing is not more evenly distributed across those fields, and if anything is somewhat more skewed. Roughly 40 percent of the raw HHI--stock association is explained by the mechanical field-count channel rather than a residual concentration effect. I read the evidence as more consistent with a pattern of extensive-margin broadening into more fields alongside continued or increasing intensive-margin concentration --- which I describe as \emph{consistent with} core-preserving expansion rather than as direct confirmation of it, since I do not track which specific field constitutes a firm's technological core over time; a direct test using, for example, each firm's largest-field share over time is left for future work. Re-estimation on the alternative applicant-identity classification yields $(-0.127,-0.106)$ and $(0.276,0.174)$ for HHI and entropy respectively, essentially unchanged.
+
+\subsection{RQ2: examiner recognition of applicant continuity}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Two-part examiner recognition (LPM, firm + field + year FE)}
+\label{tab:block2}
+\begin{tabular}{lcc}
+\toprule
+\textit{Part 1: citation context recorded} & Rejection-context & Grant-context \\
+\midrule
+$\log(1+\text{decayed stock})$ & $-0.003$ (0.002) & $-0.000$ (0.002) \\
+Relatedness & $0.009$ (0.025) & $0.042$\textsuperscript{*} (0.020) \\
+Own-portfolio HHI & $-0.033^{\dagger}$ (0.019) & $0.007$ (0.016) \\
+Observations & 606,368 & 606,368 \\
+\midrule
+\textit{Part 2: own-patent citation $\mid$ context recorded} & Rejection-context & Grant-context \\
+\midrule
+$\log(1+\text{decayed stock})$ & $0.061$\textsuperscript{***} (0.002) & $0.066$\textsuperscript{***} (0.002) \\
+Relatedness & $-0.069$\textsuperscript{*} (0.028) & $-0.069^{\dagger}$ (0.036) \\
+Own-portfolio HHI & $0.011$ (0.017) & $0.016$ (0.027) \\
+Number of active fields & $0.006$\textsuperscript{***} (0.001) & $0.006$\textsuperscript{***} (0.001) \\
+Observations & 269,183 & 186,837 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\vspace{2pt}
+\footnotesize \textsuperscript{***}$p<0.001$, \textsuperscript{*}$p<0.05$, $^{\dagger}p<0.10$. Firm-clustered SE. A sequential two-part decomposition, not a Heckman-type selection model, since no exclusion restriction is imposed between the two parts. ``Own-patent citation'' identifies the cited and citing applicant by matching first-listed applicant codes (Appendix A); ``context recorded'' means at least one citation of the relevant type is present in the record.
+\end{minipage}
+\end{table}
+
+\textbf{RQ2's answer is directionally consistent but not equally precise across the two citation contexts.} Conditional on a citation context being recorded, accumulated stock robustly predicts that the citation draws on the applicant's own prior patents ($p<0.001$ in both contexts). Relatedness is negatively associated with the same outcome in both contexts, though the association is more precisely estimated in the rejection context ($p<0.05$) than in the grant context ($p<0.10$); I describe the two coefficients as pointing the same way rather than as a uniformly ``opposite direction'' from scale in both settings with equal confidence. To probe the relatedness result further, I decompose the rejection-context citation set into self-citation, external-citation, and total-citation counts (PPML, firm+field+year FE, firm-clustered SE); because these count variables are constructed only for applications with a recorded rejection-related citation, the estimation sample of 269,183 applications coincides exactly with Table 3, Part 2's rejection-context sample. Relatedness is significantly negative for self-citation count ($-0.449$, $p=0.010$) but not significantly different from zero for external-citation count ($-0.035$, $p=0.433$) or total-citation count ($-0.082$, $p=0.076$). This provides no support for one specific explanation --- that related applications sit in a denser neighborhood of third-party prior art, which would predict a positive coefficient on external citations --- though a non-significant coefficient does not itself rule out a modest true effect in either direction; the point estimate and 95 percent confidence interval for external citations are reported alongside the other coefficients in Appendix A's robustness summary. Without identifying the operative mechanism, one possibility is that related applications are more sharply differentiated from the applicant's own earlier claims, drawing fewer references to them specifically, but this remains untested directly and is left for future work (Section 5.1 develops two candidate mechanisms further).
+
+\subsection{RQ3: the timing of examination}
+
+Time origin is the examination-request date for the grant-timing and rejection-record-timing models, and the date of the first rejection-decision-related citation record for the transition model. The grant-timing model in Table 4 tracks all applications to grant or censoring regardless of an intervening rejection-related record.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Separate event-history models and rejection-to-grant transition (field- and regime-stratified, firm-clustered)}
+\label{tab:block3}
+\begin{tabular}{lccc}
+\toprule
+Variable & Grant timing & Rejection-record timing & Rejection$\to$grant transition \\
+\midrule
+$\log(1+\text{decayed stock})$ & 0.032\textsuperscript{**} (HR 1.03) & $-0.032$\textsuperscript{**} (HR 0.97) & 0.022$^{\dagger}$ (HR 1.02) \\
+Relatedness & 0.020 n.s. (HR 1.02) & 0.238\textsuperscript{*} (HR 1.27) & 0.208 n.s. (HR 1.23) \\
+Own-portfolio HHI & 0.159\textsuperscript{*} (HR 1.17) & 0.167\textsuperscript{*} (HR 1.18) & 0.193\textsuperscript{*} (HR 1.21) \\
+\midrule
+Observations & 612,936 & 612,939 & 97,211 \\
+Event rate & 47.1\% & 15.9\% & 23.2\% \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\vspace{2pt}
+\footnotesize \textsuperscript{**}$p<0.01$, \textsuperscript{*}$p<0.05$, $^{\dagger}p<0.10$, n.s.\ = not significant. HR = hazard ratio, $\exp(\hat\beta)$. Field/regime-stratified (field, corporate-applicant status, post-2001 examination-request-deadline reform), firm-clustered. Grant timing and rejection-record timing are separate event-history models, each on the full sample with its own event indicator, not competing risks.
+\end{minipage}
+\end{table}
+
+\textbf{The event-history models provide consistent evidence that stock is associated differently with grant timing and rejection-record timing, though the estimates remain associational rather than causal and one component shows a residual proportional-hazards violation (Appendix A). For relatedness, three full-sample specifications show no association with grant timing, and this was not overturned by a subsequent battery of nine reproducibility checks (full detail in Appendix B).} A stacked comparison across the two hazards rejects coefficient equality for $\log(1+\text{decayed stock})$ ($p<0.001$) and for relatedness ($p<0.001$), but not for own-portfolio HHI ($p=0.60$); this result is identical, to three decimal places, whether the stacked model is clustered by application or by firm, which I verified directly rather than treating as a residual concern, so I no longer qualify this as merely an application-clustered comparison.
+
+Three full-sample specifications --- differing in stratification structure and in whether an intervening rejection-related record is treated as a fixed or a time-varying covariate --- yield small, statistically insignificant relatedness coefficients for grant timing ($0.020$, $0.034$, and $0.028$, all n.s.). A significant negative coefficient found in an earlier, unstratified time-varying specification ($-0.570$, $p<0.001$) disappears once field-level controls are added, and a significant negative coefficient found in one random firm subsample (approximately $-0.40$, $p<0.001$) is not reproduced across nine further reseeded, restricted, or sequential-exclusion diagnostics (Appendix B). I therefore find no robust evidence that relatedness is associated with grant timing; I read the original subsample estimate as appearing to be an unrepresentative single realization rather than a demonstrated cause, without claiming to have exhaustively ruled out a rarer configuration these checks did not encounter.
+
+Relatedness is, by contrast, positively associated with earlier rejection-decision-related recording ($0.238$, $p<0.05$), and stock is associated with faster grant timing but slower rejection-record timing, a difference confirmed by a formal joint test that is identical whether clustered by application or by firm ($p<0.001$ for stock and for relatedness, $p=0.60$ for concentration). Grant timing and rejection-decision-related-record timing are distinct, non-terminal event-history outcomes --- 14.9 percent of applications with a rejection-related record are subsequently granted --- and should not be read as grant probabilities or as final adverse dispositions. Among applications that receive a rejection-related record, concentration is associated with a faster subsequent path to grant ($p<0.05$), and stock shows the same direction at borderline significance ($p=0.053$), which further qualifies any reading of a rejection-related record as uniformly unfavorable to the applicant. Re-estimation of the grant-timing and rejection-record-timing models on the alternative applicant-identity classification yields $(0.030,0.021,0.161)$ and $(-0.032,0.244,0.166)$ respectively, essentially unchanged.
+
+\subsection{Reading the results together}
+
+Scale is a positive, statistically robust correlate of continued filing (Section 4.1), of portfolio breadth (Section 4.2), and of within-context own-patent citation (Section 4.3); its association with the pace of grant relative to rejection-related recording (Section 4.4) is also statistically distinguishable and, unlike relatedness, does not depend on which of the specifications compared in Appendix B is used. Relatedness is a positive, equally robust correlate of continued filing, but a negative correlate of within-context own-patent citation; its association with examination timing specifically converges on a null across every full-sample specification I estimate, and a battery of reproducibility checks largely dispelled an earlier subsample-based concern, though I stop short of claiming the matter is closed beyond any possible reservation (Section 4.4, Appendix B). Portfolio concentration plays essentially no role in continued filing or in within-context recognition, but is associated with both examination-timing outcomes in a stable, mutually indistinguishable way across specifications, which I read as evidence of faster institutional \emph{sorting} in either direction rather than as evidence that concentration is systematically favorable or unfavorable to an applicant. No single dimension tells the same story across every outcome examined, which is itself the paper's central empirical finding: scale and relatedness are distinct, independently relevant dimensions of accumulated capability, not interchangeable proxies for a single underlying construct, and each attaches to a different part of the innovation-to-examination process.
+
+\section{Discussion}
+
+\subsection{Findings}
+
+The paper's contribution rests on RQ1 and RQ2, answered with reasonable confidence: portfolio scale and portfolio relatedness are independently associated with continued filing within established technological fields, but the same two dimensions do not translate uniformly into how examination records reflect an applicant's technological history. RQ3 extends this logic to examination timing; the earlier concern that this conclusion was fragile to sample composition (Section 4.4, Appendix B) turned out, on further investigation, not to replicate, which increases confidence that the full-sample estimates reflect no statistically detectable relatedness--grant-timing association, though I stop short of treating this as proof of an exactly zero effect and continue to describe it with appropriate caution given the limits of any finite diagnostic exercise.
+
+The sign of the relatedness association with continued filing (RQ1) is robust across every check in Section 4.1, but its magnitude is not: the standardized effect falls from 15.4 to 7.4 percent of a one-standard-deviation increase under the large-firm-excluded relatedness measure, and the raw coefficient falls by roughly one quarter when likely bulk filings are excluded. Scale's association, by contrast, is stable in both sign and approximate magnitude across the same checks (Appendix A, Table A1). This asymmetry is itself informative: relatedness's association with continued filing is a real, direction-robust regularity, but one whose precise size is more sensitive to measurement and sample-construction choices than scale's.
+
+One way to organize these findings theoretically is to distinguish accumulated capability's role as an \emph{internal search resource} from its role as an \emph{externally legible record}. As an internal resource, both scale and relatedness lower the marginal cost of continued search (Section 3.2), consistent with an absorptive-capacity account in which a firm's own related knowledge base facilitates further exploitation of a technological area \citep{cohenlevinthal1990}; this is why both dimensions predict continued filing in the same direction (Section 4.1). As an externally legible record, however, the two dimensions diverge: scale increases the sheer volume of an applicant's own prior art that an examiner might locate, while relatedness's association runs the other way (Section 4.3). I do not have direct evidence to adjudicate between competing accounts of this divergence, but two are worth stating explicitly as candidates for future work. Under a \emph{redundancy-avoidance} account, firms whose new applications are closely related to their own prior portfolio may draft claims more deliberately to avoid overlap with their own earlier patents, precisely because the risk of such overlap is highest when relatedness is high, which would reduce the odds that an examiner's citation, once recorded, points back to the applicant's own prior art specifically. Under a \emph{differentiation} account, closely related applications may simply represent more incremental, narrowly claimed extensions of existing technology that are, for reasons unrelated to drafting strategy, less likely to trigger a self-referential citation. The citation-count decomposition in Section 4.3 is consistent with either account and does not distinguish between them; separating them would plausibly require claim-level text data (e.g., claim length or scope measures) or information on whether an application was prosecuted with outside patent-attorney assistance, neither of which is available in the present database, and I flag this as a concrete data requirement for future work rather than leaving the distinction entirely open-ended.
+
+\subsection{Comparative interpretation of scale and relatedness}
+
+The reduced-form associations above invite a natural question: how would continued filing and examination-record recognition differ for two firms that hold the same stock in a field but differ in how related that field is to the rest of their portfolio? My design does not experimentally manipulate portfolio structure holding scale fixed, and Section 3.3 explains why I stop short of a fully causal claim. The within-firm-field estimates in Table 1's preferred specification nonetheless offer a restricted version of this comparison, holding a field's own stock fixed: higher relatedness to a firm's other holdings is associated with higher filing intensity in that field (Section 4.1). Table 3, Part 2's decomposition offers the corresponding structure-only comparison for institutional recognition, again holding a firm's stock in the focal field fixed: a firm whose portfolio is more related across fields is associated with a \emph{lower} probability that a recorded citation references the firm's own prior patents. Read together, holding stock fixed, higher relatedness is associated with more persistent search within a field but with less own-patent recognition once an examination-record citation occurs; a separate, stock-only comparison (holding relatedness fixed) would show the reverse pattern in Section 4.3 (own-patent citation rising with stock) alongside the same-direction pattern in Section 4.1 (continued filing rising with stock). Neither comparison is a computed counterfactual from a fully specified structural model; both are within-sample contrasts implied by the estimated associations, conditioning on one dimension while reading off the other. I use \emph{distinct, independently relevant dimensions} rather than \emph{complementary} to describe this pattern throughout the paper, since the additive specifications used here identify the independent association of each dimension rather than an interaction between them; a genuine complementarity claim would require an interaction term I do not estimate and leave for future work.
+
+\subsection{Practical implications}
+
+Firms should not treat portfolio scale and portfolio relatedness as interchangeable levers. Scale is associated with continued filing and with stronger examination-record recognition of the firm's own prior art once a citation context is recorded; relatedness is also associated with continued filing, but with examination records drawing relatively less on the firm's own patents specifically in that same setting. IP managers who track only aggregate patent counts risk missing this distinction.
+
+\subsection{Policy implications}
+
+For the Japan Patent Office and comparable examining authorities, two implications follow, stated with appropriate caution given the identification limits in Section 3.3. First, the volume-sensitivity of within-context examination-record own-patent citation is consistent with, though does not by itself establish, an information-processing account in which recorded prior-art citation patterns are more sensitive to portfolio size than to technological organization; if replicated, this would be relevant to how prior-art search tools are designed. Second, the opposite-signed association of application stock and granted stock (Section 4.1) suggests that empirical studies of portfolio growth should distinguish accumulated applications from accumulated granted rights. I do not extend this second point into a specific claim about defensive filing, patent thickets, or strategic intent: the present design observes accumulated stock, not firm intent, product-market effects, or the age composition of granted rights, and I regard the gap between an observed statistical association and a claim about deliberate strategic behavior as one this paper's evidence does not close.
+
+\subsection{Limitations, boundary conditions, and future research}
+
+The empirical setting --- Japanese pharmaceutical and life-science-related patenting under a system with a discretionary examination-request window --- likely shapes which of these associations would generalize, though the paper tests none of these cross-context claims directly and they should be read as conjectures rather than findings. The RQ1 associations plausibly extend to other cumulative, science-based technology areas, since the search-cost logic in Section 3.2 does not depend on Japan-specific institutional features, but this is an untested extrapolation from a single-country, single-sector design. The RQ2 finding is more setting-specific, depending on the existence of examiner-recorded citation contexts of the kind available in the IIP database. The IPC-subclass heterogeneity documented in Section 4.1 --- a detectable relatedness association in A61 and C12 but not in C07 --- is itself a caution against assuming uniform generalizability even within the present sample's own IPC classes, let alone across industries with less cumulative or more discrete technological trajectories (e.g., software or mechanical engineering).
+
+A further set of limitations concerns measurement, most now checked directly rather than left open. Applicant identity is assigned by first-listed applicant; a high-sole-applicant-share restriction (Section 4.1) leaves the preferred RQ1 specification and the RQ2 own-patent-citation coefficients essentially unchanged (rejection-context relatedness $-0.067$, $p=0.028$; grant-context relatedness $-0.067$, $p=0.093$, both close to the full-sample estimates in Table 3), though this restriction is coarser than an ideal application-level sole-applicant check, which is left for future work. Patent filing counts continued patenting only imperfectly, since bulk filings could inflate the stock--filing association for procedural reasons; excluding likely bulk filings leaves the stock coefficients essentially unchanged and attenuates the relatedness coefficient from $0.904$ to $0.660$ while remaining significant (Section 4.1), indicating that same-day filing bundles account for part, but evidently not all, of the relatedness association. A stricter two-application threshold and a looser five-application threshold give relatedness coefficients of $0.530$ and $0.794$ respectively (Appendix A), both significant, confirming the direction and significance of the association are not an artifact of the specific three-application cutoff, though the coefficient's magnitude is monotonically threshold-sensitive. Because the relatedness measure is built from the same firms' co-specialization patterns it is used to explain, large firms could mechanically shape the field-pair similarity matrix; excluding the top one percent of applicant codes from this matrix's construction gives a coefficient of $0.871$ ($p=0.013$) compared with $0.904$ ($p<0.001$) at baseline (Appendix A, Tables A1--A2), so the RQ1 relatedness association is not solely an artifact of the largest applicants' self-referential contribution, though each remaining firm's own contribution to the shared similarity matrix is not separately removed, so this check reduces rather than eliminates concern about self-referential construction.
+
+A related, distinct limitation concerns the estimand itself: relatedness is coded as missing, not zero, for firm-field observations with no activity in any other field, disproportionately affecting young firm-field spells and firms that have not yet diversified. The RQ1 relatedness estimates should be read as describing firms already active in at least one other field, not as a claim applying uniformly to single-field firms; a full accounting of how single- and multi-field firms differ on other dimensions relevant to continued filing is left for future work.
+
+The absence of trial and invalidation records, sample truncation to avoid publication-lag undercounting, and the mechanical component of the stock--concentration relationship in Section 4.2 further qualify these conclusions. For RQ3, the joint test's conclusion is confirmed identical under firm- and application-level clustering, and three full-sample specifications converge on a null relatedness--grant-timing association; an original concern that this null was fragile to firm subsampling was investigated with nine further diagnostic draws (Section 4.4, Appendix B), none of which reproduced the original instability, which I read as evidence against, though not conclusive proof against, a systematic sample-composition effect. I do not identify causal effects anywhere in this paper, and the RQ3 timing findings, together with the two named mechanisms proposed for the RQ2 sign reversal (Section 5.1), remain the areas of this paper's argument that future work is best positioned to test further.
+
+\section{Conclusion}
+
+This paper asks whether the continuation of patenting and its institutional processing are associated with the scale or the relatedness of a firm's accumulated patent portfolio. Both dimensions are independently associated with continued filing within established technological fields, but they diverge in how they relate to institutional recognition: scale is associated with examination-record citation of an applicant's own prior art, while relatedness is associated with weaker such recognition, more precisely so in one citation context than the other. Portfolio growth is associated with a broader set of active fields without a more evenly balanced portfolio across them, and the pace of examination is associated with scale but shows no robust association with relatedness. These results qualify accounts of cumulative advantage in patenting that treat portfolio size as a sufficient summary of accumulated capability: scale and relatedness are distinct, independently relevant dimensions of a firm's technological position, not interchangeable proxies for it. The associations reported here are not causal, relatedness's economic magnitude is more measurement-sensitive than scale's, and why relatedness reduces own-patent recognition in examination records remains an open mechanism question this paper poses but does not resolve.
+
+\appendix
+\section{Data Construction, Variable Definitions, and Robustness Diagnostics}
+
+\subsection{Variable definitions}
+
+All stock variables (decayed patent stock, non-granted stock, granted stock, total stock) are constructed as $\log(1+\cdot)$ of counts accumulated on a fully enumerated firm-field-year panel, using group-safe cumulative sums that correctly respect firm-field boundaries and gap years without filings. Own-portfolio HHI and (raw and normalized) entropy are computed from the same firm-field-year panel, restricted, in Section 4.2, to firm-years with positive pre-existing stock to avoid a mechanical zero-stock boundary artifact at which both measures are identically zero. Table 1's ``granted stock'' is $\log(1+\text{granted stock})$ entered alongside $\log(1+\text{decayed total stock})$; the separate decomposition reported in the text of Section 4.1 uses the same granted-stock variable together with a distinct non-granted-stock variable (total application stock minus granted stock, which also includes withdrawn, abandoned, and otherwise unresolved applications) in place of decayed total stock, and is not the specification shown in Table 1.
+
+\subsection{Relatedness construction}
+
+Field-pair similarity is computed as a cosine similarity between fields' co-specialization vectors across firms active before the focal year:
+\begin{equation}
+R_{gh,t-1} = \frac{\sum_i A_{ig,t-1} A_{ih,t-1}}{\sqrt{\sum_i A_{ig,t-1}^2}\sqrt{\sum_i A_{ih,t-1}^2}},
+\end{equation}
+where $A_{ig,t-1}$ is firm $i$'s cumulative patent count in field $g$ as of the end of year $t-1$, and the sum runs over all firms in the sample active in at least one field before year $t$. A focal firm's relatedness to field $g$ is a stock-weighted average of its similarity to the fields it is already active in, excluding $g$ itself:
+\begin{equation}
+\rho_{ig,t-1} = \sum_{h\neq g} w_{ih,t-1} R_{gh,t-1}, \qquad w_{ih,t-1} = \frac{K_{ih,t-1}}{\sum_{\ell\neq g} K_{i\ell,t-1}}.
+\end{equation}
+Both $R_{gh,t-1}$ and $\rho_{ig,t-1}$ are computed using an expanding window of information dated strictly before year $t$, so that a given year's relatedness measure cannot reflect that year's own filing patterns. Firms with no activity in any field other than $g$ as of $t-1$ have $\rho_{ig,t-1}$ undefined and are coded as missing rather than zero; this affects the youngest cohort of firm-field observations disproportionately. Table A3 compares firm-year observations with observed versus missing relatedness in the established-field risk set: relatedness-observed observations have substantially larger average decayed stock (7.05 versus 1.70), by construction average more than one active field (6.51 versus exactly 1.00), and a higher corporate-applicant share (97.5 versus 87.7 percent). The RQ1 relatedness estimates therefore describe a systematically larger, more corporate, more diversified subpopulation of firms than the full established-field risk set, reinforcing the estimand caveat in Section 5.4.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Established-field risk set: relatedness observed versus missing}
+\label{tab:appendixA3}
+\begin{tabular}{lcc}
+\toprule
+ & Relatedness observed & Relatedness missing \\
+\midrule
+Mean decayed stock & 7.05 & 1.70 \\
+Mean number of active fields & 6.51 & 1.00 \\
+Corporate-applicant share & 97.5\% & 87.7\% \\
+$N$ & 530{,}235 & 149{,}253 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Because $R_{gh,t-1}$ is computed from the co-specialization patterns of all firms active before year $t$, a firm's own prior filings contribute to the field-pair similarity matrix that is then used to compute that same firm's relatedness score. As a robustness check (Section 5.4), I reconstruct $R_{gh,t-1}$ for every year excluding the top one percent of applicant codes by total filing volume from the underlying firm-field activity matrix, then recompute $\rho_{ig,t-1}$ for all firms --- including the excluded top firms --- using this large-firm-excluded matrix. The resulting relatedness measure correlates with the baseline measure at $0.70$ and yields a Table 1 preferred-specification coefficient of $0.871$ ($p=0.013$), compared with $0.904$ ($p<0.001$) at baseline; a full leave-one-firm-out reconstruction, in which each firm's own contribution is removed individually rather than removing the top one percent for all firms uniformly, has not been attempted and would be more computationally demanding.
+
+The bulk-filing exclusion in Section 4.1 uses a three-application same-day threshold, which yields a relatedness coefficient of $0.660$ against $0.904$ at baseline. A stricter two-application threshold flags 23.2 percent of the sample and gives $0.530$ ($p=0.005$). A looser five-application threshold flags 3.9 percent and gives $0.794$ ($p=0.001$). The relatedness coefficient falls monotonically as the threshold is tightened, consistent with same-day filing bundles accounting for a meaningful and threshold-sensitive share of the raw association, but it remains positive and significant at every threshold tested.
+
+\subsection{Applicant-identity classification}
+
+Applicant codes with documentation suggesting they represent two or more unrelated firms sharing a single JPO-assigned code (identified via a string-similarity screen over the full corporate-name history associated with each code, followed by manual review) are excluded from the primary analyses (2.50--2.73 percent of the sample, depending on specification), which also removes a small number of legitimate corporate mergers whose acquiring and acquired names share no textual overlap. An alternative, less conservative classification recovers seven codes with documented corporate name lineage via a longest-common-substring similarity threshold, reducing exclusion to 2.30 percent; Sections 4.1--4.4 report that results are materially unchanged under this alternative.
+
+\subsection{Robustness summary: RQ1 coefficients and relatedness-measure descriptive statistics}
+
+Table A1 reports RQ1 preferred-specification coefficients across the checks discussed in the main text, together with standard errors and sample sizes, addressing the request that these be tabulated rather than described only in prose.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{RQ1 preferred-specification coefficients across robustness checks}
+\label{tab:appendixA1}
+\begin{tabular}{lccc}
+\toprule
+Specification & $\log(1{+}$stock$)$ & $\log(1{+}$granted$)$ & Relatedness \\
+\midrule
+Baseline (Table 1, preferred) & 0.507 (0.024)$^{***}$ & $-0.120$ (0.017)$^{***}$ & 0.904 (0.273)$^{***}$ \\
+High-sole-applicant-share ($\geq$90\%) & 0.513 (0.027)$^{***}$ & $-0.114$ (0.018)$^{***}$ & 0.908 (0.299)$^{**}$ \\
+Bulk filings excluded & 0.489 (0.018)$^{***}$ & $-0.116$ (0.015)$^{***}$ & 0.660 (0.222)$^{**}$ \\
+Extensive margin (binary, LPM) & 0.019 (0.004)$^{***}$ & $-0.059$ (0.002)$^{***}$ & 0.062 (0.024)$^{*}$ \\
+Large-firm-excluded relatedness & 0.507 (0.024)$^{***}$ & $-0.120$ (0.017)$^{***}$ & 0.871 (0.351)$^{*}$ \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\vspace{2pt}
+\footnotesize $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$. Firm-clustered SE in parentheses. The extensive-margin row uses a linear probability model, hence the smaller coefficient magnitudes: the stock coefficient of $0.019$ corresponds to roughly a 1.9-percentage-point increase in the probability of any filing in a field-year for a one-unit increase in $\log(1+\text{decayed stock})$, against a sample mean filing rate of approximately 26 percent in the established-field risk set. Stock and granted-stock coefficients are unaffected by the large-firm-excluded relatedness reconstruction, since only the relatedness variable itself is changed in that row.
+\end{minipage}
+\end{table}
+
+Table A1's high-sole-applicant-share row reports RQ1 coefficients only; the corresponding RQ2 check, restricted to applications with a single listed applicant, gives rejection-context own-patent-citation coefficients of $(0.061, -0.067, 0.017, 0.006)$ for $\log(1+\text{decayed stock})$, relatedness, own-portfolio HHI, and active-field count respectively ($n=238{,}982$), and grant-context coefficients of $(0.066, -0.067, 0.023, 0.006)$ ($n=164{,}894$), both essentially unchanged from the full-sample estimates in Table 3.
+
+Table A2 reports descriptive statistics for the baseline and large-firm-excluded relatedness measures in the established-field risk set.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Relatedness measure: baseline versus large-firm-excluded construction}
+\label{tab:appendixA2}
+\begin{tabular}{lcc}
+\toprule
+ & Baseline & Large-firm-excluded \\
+\midrule
+Mean & 0.279 & 0.126 \\
+SD & 0.158 & 0.082 \\
+25th / 50th / 75th percentile & 0.156 / 0.262 / 0.384 & 0.057 / 0.111 / 0.183 \\
+Maximum & 0.852 & 0.684 \\
+$N$ (non-missing, established-field risk set) & 530{,}235 & 530{,}235 \\
+Correlation with baseline & 1.00 & 0.70 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\vspace{2pt}
+\footnotesize Excluding the top one percent of applicant codes from the field-pair similarity matrix roughly halves both the mean and the standard deviation of the resulting relatedness measure (0.279 to 0.126; 0.158 to 0.082), since large, multi-field firms contribute disproportionately to the raw co-specialization signal underlying $R_{gh,t-1}$ even though they are a small share of all firms. The raw regression coefficient on relatedness is close to unchanged (0.904 to 0.871, Table A1), but because this coefficient is applied to a measure with a much smaller standard deviation under the large-firm-excluded construction, the corresponding standardized effect is not: a one-standard-deviation increase in relatedness is associated with a 15.4 percent increase in expected filing intensity under the baseline measure but only a 7.4 percent increase under the large-firm-excluded measure. The check therefore confirms the direction and statistical significance of the relatedness association under an alternative construction that removes the largest firms' disproportionate contribution to the shared similarity matrix, but it does not establish that the association's economic magnitude is invariant to this choice; the correlation of $0.70$ between the two measures indicates that a meaningful share of firm-field observations are reranked, not merely rescaled, by the reconstruction.
+\end{minipage}
+\end{table}
+
+For the RQ2 citation-count decomposition (Section 4.3), the external-citation coefficient is $-0.035$ with a 95 percent confidence interval of $[-0.122, 0.052]$, and the total-citation coefficient is $-0.082$ with a 95 percent confidence interval of $[-0.172, 0.008]$; both intervals include zero but do not rule out a modest true effect in either direction, which is why Section 4.3 describes the evidence as providing no support for the denser-prior-art explanation rather than as ruling it out entirely.
+
+\subsection{Nonlinearity in the relatedness association}
+
+Adding a squared relatedness term to Table 1's preferred specification requires centering relatedness at its sample mean first (uncentered relatedness and its square correlate at $0.96$ in this sample, which would otherwise render the linear term uninterpretable). The centered specification gives a positive linear coefficient at the sample mean ($1.114$, $p=0.002$) and a negative, marginally non-significant quadratic term ($-1.621$, $p=0.102$), consistent with, though not conclusive evidence for, a concave relationship in which the marginal association of relatedness with continued filing weakens at high relatedness levels; the implied turning point ($\rho \approx 0.62$) lies above the 75th percentile of relatedness in this sample, so the linear specification in Table 1 remains a reasonable approximation over most of the observed range. I do not treat this as more than suggestive evidence of the kind of cognitive-lock-in effect sometimes discussed alongside absorptive-capacity accounts of local search.
+
+\subsection{Proportional-hazards diagnostics}
+
+Corporate-applicant status and the 2001 reform shortening the examination-request deadline violate the proportional-hazards assumption when included as covariates in the Section 4.4 static models and are instead used as stratification variables, together with technological field. The rejection-record-timing model fully satisfies the assumption under this stratification; the grant-timing model retains a marginal violation for decayed stock (test statistic $4.70$, $p=0.030$). A piecewise specification splitting the risk period at three years from the examination-request date --- an interval chosen to give a reasonable division of the observed duration distribution and sufficient events in both intervals, not because it corresponds to the statutory examination-request deadline itself, since that deadline governs the earlier application-to-request interval rather than the post-request duration modeled here --- shows the stock coefficient is not significant in the first three years ($0.019$, $p=0.360$; $8.2$ percent of applications entering this interval are granted within it) and is positive and significant beyond three years ($0.034$, $p=0.003$; $44.4$ percent of the applications still at risk after three years are granted in the second interval). The point estimate is larger and only individually significant in the later interval; however, a formal test of whether the two coefficients differ from each other (treating the two interval-specific estimates as approximately independent) gives $z=0.67$, $p=0.50$, which does not reject equality. One coefficient being significant while the other is not does not by itself imply the two differ significantly from each other, and this direct test confirms that caution: the piecewise split does not provide clear evidence against a constant effect, and I revise my earlier framing accordingly. This remains consistent with, but does not resolve, the detected non-proportionality, and a continuous time-interaction or AFT specification is left for future work.
+
+\subsection{Zero-stock boundary in the portfolio-diversification analysis}
+
+Before restricting to firm-years with positive pre-existing stock, 35.4 percent of firm-year observations have zero pre-existing stock, at which own-portfolio HHI and entropy are both mechanically anchored at zero. Including these observations contaminates the within-firm slope of both outcomes on stock; the positive-stock subsample used in Section 4.2 recovers the theoretically expected concentration/diversity relationship (HHI and entropy correlate at $-0.97$ in this subsample).
+
+\section{RQ3 Specification Comparison and Reproducibility Diagnostics}
+
+Table B1 reports the full set of point estimates for the grant-timing relatedness coefficient across the five original specifications discussed in Section 4.4.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Grant-timing relatedness coefficient across specifications}
+\label{tab:appendixB1}
+\begin{tabular}{p{9.5cm}cc}
+\toprule
+Specification & Coefficient & Significance \\
+\midrule
+Three-way stratification (field $\times$ regime $\times$ corporate), full sample & 0.020 & n.s. ($p=0.85$) \\
+Field-only stratification, full sample & 0.034 & n.s. ($p=0.75$) \\
+Time-varying rejection-record covariate, field/regime/corporate stratified, full sample & 0.028 & n.s. ($p=0.12$) \\
+Time-varying rejection-record covariate, unstratified, full sample & $-0.570$ & $p<0.001$ \\
+Random 25--30\% firm subsample (original single draw), three-way stratification & $\approx-0.40$ & $p<0.001$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The three full-sample specifications that include field-level stratification --- static three-way, static field-only, and time-varying field-stratified --- agree closely (0.020 to 0.034, all not significant), despite differing in whether stratification is fine or coarse and in whether an intervening rejection-related record is treated as fixed or time-varying. The one full-sample specification that omits field-level stratification entirely is the outlier among full-sample specifications, indicating the earlier divergence between the static and time-varying results reflected the absence of field controls rather than the time-varying treatment of rejection-related records as such.
+
+This left the original random subsample estimate ($\approx-0.40$, $p<0.001$) as the sole remaining disagreement. Table B2 reports nine further diagnostic draws undertaken to determine whether this reflected a systematic property of the data.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Reproducibility diagnostics for the grant-timing relatedness coefficient}
+\label{tab:appendixB2}
+\begin{tabular}{p{7.5cm}ccc}
+\toprule
+Diagnostic & $N$ (applications) & Coefficient & Significance \\
+\midrule
+Full sample, top 1\% of firms excluded as observations & 127{,}562 & 0.061 & n.s. ($p=0.29$) \\
+Reseeded 25\% subsample, seed 1 & 162{,}845 & 0.061 & n.s. ($p=0.64$) \\
+Reseeded 25\% subsample, seed 2 & 142{,}270 & $-0.171$ & n.s. ($p=0.45$) \\
+Reseeded 25\% subsample, seed 3 & 141{,}415 & 0.067 & n.s. ($p=0.65$) \\
+Reseeded 25\% subsample, seed 4 & 149{,}043 & $-0.055$ & n.s. ($p=0.79$) \\
+Reseeded 25\% subsample, seed 5 & 147{,}089 & 0.310 & n.s. ($p=0.25$) \\
+25\% subsample from a top-1\%-excluded population, seed 1 & 31{,}884 & 0.008 & n.s. ($p=0.95$) \\
+25\% subsample from a top-1\%-excluded population, seed 2 & 32{,}351 & 0.033 & n.s. ($p=0.78$) \\
+25\% subsample from a top-1\%-excluded population, seed 3 & 31{,}343 & 0.147 & n.s. ($p=0.21$) \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\vspace{2pt}
+\footnotesize The first row's estimation sample is smaller than the raw 41.6 percent of applications remaining after excluding the top one percent of firms would suggest, because relatedness is disproportionately missing for the smaller, single-field firms that remain once large, multi-field firms are excluded (Section 5.4), not a separate data-quality issue.
+\end{minipage}
+\end{table}
+
+A tenth diagnostic sequentially excluded each of the ten largest firms one at a time from the full sample; the largest resulting change in the coefficient was $0.039$, and no single firm's exclusion moved the estimate by an amount comparable to the gap between the original subsample draw and the full-sample estimate. None of the nine reseeded or restricted draws in Table B2 reproduced the original $-0.40$ result, and their coefficients are of mixed sign and uniformly non-significant, a pattern more consistent with sampling variation around a true null than with a systematic firm-composition effect. The original subsample estimate therefore appears to be an unrepresentative single realization rather than a demonstrated cause, though I do not claim to have exhaustively ruled out a rarer data configuration that none of these ten additional checks happened to encounter, and a fully systematic jackknife-by-firm procedure across the entire firm population remains a logical, if now lower-priority, extension.
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
